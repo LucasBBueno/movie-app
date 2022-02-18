@@ -1,11 +1,15 @@
 import React from 'react';
 
+import GlobalStyle from './presentation/styles/global';
+import Content from './presentation/shared/components/Content';
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-    </div>
-  );
+    <>
+       <GlobalStyle />
+       <Content />
+    </>
+  )
 }
 
 export default App;
