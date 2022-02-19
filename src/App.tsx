@@ -1,14 +1,10 @@
 import React from 'react';
 
-import GlobalStyle from './presentation/styles/global';
-import Content from './presentation/shared/components/Content';
+import MoviesRouter from './main/routes/movies-routes';
 
 const App = () => {
   return (
-    <>
-       <GlobalStyle />
-       <Content />
-    </>
+    <MoviesRouter />
   )
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Logo from '../../../assets/logo.svg'
+import Logo from '../../../assets/movie-logo.svg'
+import SearchIcon from '../../../assets/search.svg'
 
 import * as S from './styles'
 
@@ -9,11 +10,12 @@ const Header = () => {
     <S.Wrapper>
       <S.Logo>
         <img src={Logo} />
-        <h1>
+        <span>
           MovieApp
-        </h1>
+        </span>
       </S.Logo>
       <S.Search>
+        <img src={SearchIcon} />
       </S.Search>
     </S.Wrapper>
   )

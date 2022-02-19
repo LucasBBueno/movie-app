@@ -8,9 +8,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font: 14px "Helvetica Neue", Arial, sans-serif;
     color: #fff;
-    background-color: #222323;
+    background-color: #14171C;
+  }
+  
+  h1, h2, span, p, label {
+    font: 14px 400 "Helvetica Neue", Arial, sans-serif;
   }
 `
 
