@@ -9,13 +9,13 @@ const Header = () => {
   return (
     <S.Wrapper>
       <S.Logo>
-        <img src={Logo} />
+        <img src={Logo} alt="Logo"/>
         <span>
           MovieApp
         </span>
       </S.Logo>
       <S.Search>
-        <img src={SearchIcon} />
+        <img src={SearchIcon} alt="Buscar"/>
       </S.Search>
     </S.Wrapper>
   )
