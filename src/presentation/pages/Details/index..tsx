@@ -2,7 +2,6 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import MovieDetail from '../../../domain/entities/movie-details-model'
 import ResumeCard from '../../shared/components/Details/ResumeCard'
 import Actors from '../../shared/components/Details/Actors'
 
