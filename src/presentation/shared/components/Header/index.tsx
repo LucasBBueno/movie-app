@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Logo from '../../../assets/movie-logo.svg'
-import SearchIcon from '../../../assets/search.svg'
 
 import * as S from './styles'
 

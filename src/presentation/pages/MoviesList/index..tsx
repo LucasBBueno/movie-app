@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext, useEffect, useCallback } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 import InfiniteScroll from 'react-infinite-scroll-component'
@@ -26,13 +26,11 @@ const MoviesList = () => {
   const fetchOmbdMoviesByName = async (getMoreResults?: boolean) => {
       setTimeout(async () => {
         try {
-          console.log("actualPage",actualPage)
           const res = await searchMoviesService.search({
             name: state.name,
             pageNumber: actualPage
           })
-          console.log('MoviesRes', res)
-          if(3 > (movies.length)) {
+          if(res.totalResults > (movies.length)) {
             setHasMoreResults(true)
             setActualPage(actualPage + 1)
           } else {
@@ -63,9 +61,8 @@ const MoviesList = () => {
   }
 
   useEffect(() => {
-    console.log('Search Name', state.name)
     fetchOmbdMoviesByName()
-  }, [state])
+  }, [])
 
   return (
     <>

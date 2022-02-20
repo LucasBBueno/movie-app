@@ -16,6 +16,7 @@ const Details = () => {
   const [movieDetails, setMovieDetails] = useState<LoadOmbdMovieDetails.Model>()
   const navigate = useNavigate()
 
+
   const params = useParams()
 
   const loadMovieDetailService = new RemoteLoadOmdbMovieDetails()
@@ -35,9 +36,8 @@ const Details = () => {
   }
 
   useEffect(() => {
-    console.log('params',  params.id)
     fetchOmbMovieDetails()
-  }, [params])
+  }, [])
 
   return (
     <>
