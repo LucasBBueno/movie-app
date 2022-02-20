@@ -37,7 +37,7 @@ const Details = () => {
 
   useEffect(() => {
     fetchOmbMovieDetails()
-  }, [])
+  }, [params])
 
   return (
     <>

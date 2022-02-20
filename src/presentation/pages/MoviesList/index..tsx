@@ -62,7 +62,7 @@ const MoviesList = () => {
 
   useEffect(() => {
     fetchOmbdMoviesByName()
-  }, [])
+  }, [state])
 
   return (
     <>
