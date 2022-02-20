@@ -12,25 +12,25 @@ const fadeIn = keyframes`
 
 export const Wrapper = styled.div`
   z-index: 1;
-  position: fixed;
+  position: absolute;
   display: flex;
-  flex-direction: column;
   align-items: center;
   background-color: #232F3E;
-  max-width: 800px;
+  max-width: 900px;
   padding: 4px;
   border-radius: 8px;
   animation: ${fadeIn} 0.4s linear;
 
   img {
-    width: 500px;
-    height: 350px;
+    width: 215px;
+    height: 325px;
     object-fit: cover;
   }
 `
 
 export const Details = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -50,8 +50,9 @@ export const Complement = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 24px;
   margin-top: 12px;
+  padding: 24px;
+  width: 250px;
 
   section {
     display: flex;
@@ -81,7 +82,7 @@ export const MoreInfo = styled.button`
   font: 14px "Helvetica Neue", Arial, sans-serif;
   font-weight: 600;
   transition: opacity 450ms;
-  margin-right: 24px;
+  margin-top: 12px;
 
   :hover {
     opacity: 0.8;

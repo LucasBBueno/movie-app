@@ -5,7 +5,7 @@ import { BrowserRouter, BrowserRouterProps, useLocation, Routes, Route } from 'r
 import Home from '../../presentation/pages/Home'
 import MoviesList from '../../presentation/pages/MoviesList/index.'
 import Details from '../../presentation/pages/Details/index.'
-import Header from '../../presentation/shared/components/Header'
+import GlobalContext from '../../presentation/contexts'
 
 export const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -19,16 +19,16 @@ export const ScrollToTop = () => {
 
 const MoviesRouter = (props: BrowserRouterProps) => {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/listagem" element={<MoviesList />}/>
-        <Route path="/detalhes/" element={<Details />} />
-      </Routes>
-    </BrowserRouter>
+    <GlobalContext>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/listagem" element={<MoviesList />}/>
+          <Route path="/detalhes/:id" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
+    </GlobalContext>
   )
 }
 

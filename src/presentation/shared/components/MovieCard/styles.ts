@@ -2,6 +2,9 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 `
 
 export const Content = styled.div`
@@ -15,13 +18,14 @@ export const Content = styled.div`
  
   img {
     object-fit: cover;
-    width: 100%;
+    width: 200px;
     height: 300px;
     border-radius: 6px;
     opacity: 0.8;
 
     :hover {
       opacity: 1;
+      cursor: pointer;
     }
   }
 `

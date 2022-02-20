@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+
+import SearchMoviesContext from '../../../contexts/search-movies'
 
 import * as S from './styles'
 
@@ -11,9 +13,19 @@ const SearchArea = ({
 }: SearchAreaProps) => {
   const [searchName, setSearchName] = useState('')
 
-  const handleSearchMovies = (search: string) => {
-    console.log('Faz a busca')
+  const { state, setState } = useContext(SearchMoviesContext)
+
+  const handleSearchMovies = (searchName: string) => {
+    setState({
+      ...state,
+      name: searchName
+    })
     onSearch()
+  }
+
+  const cannotSearchMovies = (): boolean => {
+    console.log("searchName === '' || searchName.length < 3", searchName === '' || searchName.length < 3)
+    return searchName === '' || searchName.length < 3
   }
 
   return (
@@ -24,11 +36,15 @@ const SearchArea = ({
       <S.InputBox>
         <input 
           placeholder="Procure seu filme" 
-          onChange={(e) => setSearchName(e.target.value)} 
+          onChange={(e) => setSearchName(e.target.value)}
+          onKeyPress={(e) => e.key === 'Enter' && !cannotSearchMovies() ? handleSearchMovies(searchName) : null}
         />
-        <button onClick={() => handleSearchMovies(searchName)}>
+        <S.SearchButton 
+          onClick={() => handleSearchMovies(searchName)}
+          disabled={cannotSearchMovies()}
+        >
           Buscar
-        </button>
+        </S.SearchButton>
       </S.InputBox>
     </S.Wrapper>
   )

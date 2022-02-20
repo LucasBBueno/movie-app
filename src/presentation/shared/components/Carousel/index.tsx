@@ -84,7 +84,13 @@ const moviesMock = [
 ]
 
 
-const Carousel = () => {
+type CarouselProps = {
+  onNavigate(movieId: string): void
+}
+
+const Carousel = ({
+  onNavigate
+}: CarouselProps) => {
   const [movies, setMovies] = useState<Movie[]>([])
 
   const settings = {
@@ -93,10 +99,17 @@ const Carousel = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 4500,
-    autoplaySpeed: 4500,
+    speed: 7500,
+    autoplaySpeed: 7500,
     pauseOnHover: true,
     responsive: [
+      {
+        breakpoint: 1600,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        }
+      },
       {
         breakpoint: 1024,
         settings: {
@@ -105,16 +118,16 @@ const Carousel = () => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1
         }
       }
@@ -130,6 +143,7 @@ const Carousel = () => {
       <Slider {...settings}>
         {movies.map(movie => (
           <CarouselCard
+            onClick={() => onNavigate(movie.id)}
             key={movie.id}
             movie={movie}
           />

@@ -12,4 +12,4 @@ export default {
   }
 } as ComponentMeta<typeof Header>
 
-export const Default: ComponentStory<typeof Header> = () => <Header/>
+export const Default: ComponentStory<typeof Header> = () => <Header handleClick={() => null}/>

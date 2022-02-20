@@ -5,10 +5,19 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Image = styled.img`
   object-fit: cover;
+
+  @media(max-width: 1024px) {
+    max-width: 250px;
+  }
 `
 
 export const Content = styled.section`
@@ -16,6 +25,10 @@ export const Content = styled.section`
   padding: 40px;
   color: rgb(211, 209, 208);
   background-color: rgba(35,47,62,.7);
+
+  @media(max-width: 1024px) {
+    padding: 20px;
+  }
 `
 
 export const Header = styled.div`
@@ -29,6 +42,10 @@ export const Title = styled.h1`
   font: 42px "Helvetica Neue",Arial,sans-serif;
   font-weight: 600;
   color: #FFDB4C;
+
+  @media(max-width: 1024px) {
+    font-size: 28px;
+  }
 `
 
 export const Rating = styled.span`

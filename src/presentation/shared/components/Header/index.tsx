@@ -5,18 +5,19 @@ import SearchIcon from '../../../assets/search.svg'
 
 import * as S from './styles'
 
-const Header = () => {
+type HeaderProps = {
+  handleClick(): void
+}
+
+const Header = ({ handleClick }: HeaderProps) => {
   return (
     <S.Wrapper>
-      <S.Logo>
+      <S.Logo onClick={handleClick}>
         <img src={Logo} alt="Logo"/>
         <span>
           MovieApp
         </span>
       </S.Logo>
-      <S.Search>
-        <img src={SearchIcon} alt="Buscar"/>
-      </S.Search>
     </S.Wrapper>
   )
 }

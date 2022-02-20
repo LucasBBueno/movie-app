@@ -17,4 +17,10 @@ export const Wrapper = styled.div`
     }
   }
 
+  @media(max-width: 1024px) {
+    img {
+      height: 250px;
+      width: 220px;
+    }
+  }
 `

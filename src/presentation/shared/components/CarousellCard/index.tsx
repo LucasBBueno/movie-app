@@ -8,15 +8,12 @@ type CarouselCardProps = {
     title: string
     poster: string
   }
+  onClick(): void
 }
 
-const CarouselCard = ({ movie }: CarouselCardProps) => {
-  const handleViewMovieDetail = (movieId: string) => {
-    console.log('handleViewMovieDetail', movieId)
-  }
-
+const CarouselCard = ({ movie, onClick }: CarouselCardProps) => {
   return (
-    <S.Wrapper onClick={() => handleViewMovieDetail(movie.id)}>
+    <S.Wrapper onClick={() => onClick()}>
       <img 
         src={movie.poster}
         alt={movie.title}

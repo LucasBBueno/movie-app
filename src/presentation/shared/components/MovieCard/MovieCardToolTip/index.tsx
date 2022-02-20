@@ -1,5 +1,7 @@
 import React from 'react'
 
+import MoviePlaceHolder from '../../../../assets/film-poster-placeholder.png'
+
 import * as S from './styles'
 
 type MovieCardToolTipProps = {
@@ -20,7 +22,7 @@ const MovieCardToolTip = ({ movie, onClose, onGetMoreInfo }: MovieCardToolTipPro
       onMouseLeave={onClose}
     >
       <img 
-        src={movie.poster}
+        src={movie.poster === 'N/A' ? MoviePlaceHolder : movie.poster}
         alt={movie.title}
       />
       <S.Details>

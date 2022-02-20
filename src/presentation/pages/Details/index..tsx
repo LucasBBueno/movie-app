@@ -1,63 +1,82 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import ResumeCard from '../../shared/components/Details/ResumeCard'
 import Actors from '../../shared/components/Details/Actors'
+import { RemoteLoadOmdbMovieDetails } from '../../../service/usecases/load-ombd-movie-details/remote-load-omdb-movie-details'
+import { LoadOmbdMovieDetails } from '../../../domain/usecases/load-ombd-movie-details'
+import Header from '../../shared/components/Header'
 
 import PhotoPlaceholder from '../../assets/photo-placeholder.png'
 
 import * as S from './styles'
 
-const resume =  {
-  title: "Spider-Man: No Way Home",
-  description: "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.",
-  year: "2014",
-  type: "movie",
-  genres: ['Action', 'Adventure', 'Fantasy'],
-  poster: "https://m.media-amazon.com/images/M/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_SX300.jpg",
-  imdbrating: "81",
-  director: "John Watts",
-  released: "17 Dec 2021",
-  duration: "148 min"
-}
-
-const actors = [
-  {
-    name: 'Tom Holland',
-    image: PhotoPlaceholder
-  },
-  {
-    name: 'Zendaya',
-    image: PhotoPlaceholder
-  },
-  {
-    name: 'Jacob Batalon',
-    image: PhotoPlaceholder
-  }
-]
-
 const Details = () => {
+  const [movieDetails, setMovieDetails] = useState<LoadOmbdMovieDetails.Model>()
   const navigate = useNavigate()
 
+  const params = useParams()
+
+  const loadMovieDetailService = new RemoteLoadOmdbMovieDetails()
+
+  const fetchOmbMovieDetails = async () => {
+    try {
+      const movieId = params.id
+      if(movieId) {
+        const res = await loadMovieDetailService.load({
+          movieId
+        })
+        setMovieDetails(res)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  useEffect(() => {
+    console.log('params',  params.id)
+    fetchOmbMovieDetails()
+  }, [params])
+
   return (
-    <S.Wrapper>
-      <S.Navigation>
-        <button onClick={() => navigate(-1)}>
-          Results
-        </button>
-        <p>/</p>
-        <p>{'Spider Man'}</p>
-      </S.Navigation>
-      <S.Content>
-        <ResumeCard
-          resume={resume}
-        />
-        <Actors
-          actors={actors}
-        />
-      </S.Content>
-    </S.Wrapper>
+    <>
+      <Header handleClick={() => navigate('/')} />
+      <S.Wrapper>
+        <S.Navigation>
+          <button onClick={() => navigate(-1)}>
+            Voltar
+          </button>
+          <p>/</p>
+          <p>{movieDetails?.Title ?? ''}</p>
+        </S.Navigation>
+        {movieDetails && (
+          <S.Content>
+            <ResumeCard
+              resume={{
+                title: movieDetails.Title,
+                description: movieDetails.Plot,
+                year: movieDetails.Year,
+                genres: movieDetails.Genre.split(','),
+                poster: movieDetails.Poster,
+                imdbrating: movieDetails.imdbRating,
+                director: movieDetails.Director,
+                released: movieDetails.Released,
+                duration: movieDetails.Runtime
+              }}
+            />
+            <Actors
+              actors={movieDetails.Actors.split(',').map(actor => {
+                return {
+                  name: actor,
+                  image: PhotoPlaceholder
+                }
+              })}
+            />
+          </S.Content>
+        )}
+      </S.Wrapper>
+    </>
   )
 }
 

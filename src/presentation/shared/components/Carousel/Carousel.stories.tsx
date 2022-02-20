@@ -12,4 +12,4 @@ export default {
   }
 } as ComponentMeta<typeof Carousel>
 
-export const Default: ComponentStory<typeof Carousel> = () => <Carousel />
+export const Default: ComponentStory<typeof Carousel> = () => <Carousel onNavigate={() => null} />

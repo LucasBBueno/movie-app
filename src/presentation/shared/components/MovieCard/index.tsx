@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import MoviePlaceHolder from '../../../assets/film-poster-placeholder.png'
+
 import MovieCardToolTip from './MovieCardToolTip'
 
 import * as S from './styles'
@@ -23,14 +25,6 @@ const MovieCard = ({
 
   return (
     <S.Wrapper>
-      <S.Content>
-        <img 
-          src={movie.poster}
-          alt={movie.title}
-          onMouseEnter={() => setShowToolTip(true)}
-        />
-      
-      </S.Content>
       {showTooltip && (
         <MovieCardToolTip
           movie={movie}
@@ -38,6 +32,13 @@ const MovieCard = ({
           onGetMoreInfo={onGetMoreInfo}
         />
       )}
+      <S.Content>
+        <img 
+          src={movie.poster === 'N/A' ? MoviePlaceHolder : movie.poster}
+          alt={movie.title}
+          onMouseEnter={() => setShowToolTip(true)}
+        />
+      </S.Content>
     </S.Wrapper>
   )
 }

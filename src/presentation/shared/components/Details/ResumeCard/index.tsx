@@ -1,5 +1,7 @@
 import React from 'react'
 
+import MoviePlaceHolder from '../../../../assets/film-poster-placeholder.png'
+
 import * as S from './styles'
 
 type ResumeCardProps = {
@@ -12,6 +14,7 @@ type ResumeCardProps = {
     released: string
     duration: string
     poster: string
+    year: string
   }
 }
 
@@ -19,7 +22,7 @@ const ResumeCard = ({ resume }: ResumeCardProps) => {
   return (
     <S.Wrapper>
       <S.Image 
-        src={resume.poster}
+        src={resume.poster === 'N/A' ? MoviePlaceHolder : resume.poster}
         alt={resume.title}
       />
       <S.Content>

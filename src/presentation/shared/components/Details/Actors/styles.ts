@@ -12,13 +12,23 @@ export const Title = styled.h2`
   font-weight: 600;
   color: rgb(211, 209, 208);
   text-transform: uppercase;
+
+  @media(max-width: 1024px) {
+    font-size: 22px;
+  }
 `
 
 export const Content = styled.div`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   grid-gap: 32px;
   margin-top: 16px;
+
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const Actor = styled.div`
@@ -30,8 +40,15 @@ export const Actor = styled.div`
 
   img {
     width: 200px;
-    height: 300px;
+    height: 225px;
     object-fit: cover;
+  }
+
+  @media(max-width: 768px) {
+    img {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   span {
