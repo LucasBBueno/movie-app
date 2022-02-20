@@ -6,7 +6,7 @@ import { apiKey } from "../../../infra/config/omdb";
 
 export class RemoteLoadOmdbMovieDetails implements LoadOmbdMovieDetails {
   async load(params: LoadOmbdMovieDetails.Params): Promise<LoadOmbdMovieDetails.Model> {
-    const { data, status } = await axios.get(`http://www.omdbapi.com/?apiKey=${apiKey}&i=${params.movieId}`)
+    const { data, status } = await axios.get(`https://www.omdbapi.com/?apiKey=${apiKey}&i=${params.movieId}`)
     if(status !== 200) {
       throw new Error('Falha ao buscar os filmes')
     }

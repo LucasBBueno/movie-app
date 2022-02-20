@@ -28,6 +28,7 @@ const Details = () => {
         const res = await loadMovieDetailService.load({
           movieId
         })
+        console.log("MoviesDetails", res)
         setMovieDetails(res)
       }
     } catch (e) {

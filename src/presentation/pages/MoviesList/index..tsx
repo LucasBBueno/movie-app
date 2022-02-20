@@ -30,6 +30,7 @@ const MoviesList = () => {
             name: state.name,
             pageNumber: actualPage
           })
+          console.log("Search", res)
           if(res.totalResults > (movies.length)) {
             setHasMoreResults(true)
             setActualPage(actualPage + 1)
@@ -52,7 +53,7 @@ const MoviesList = () => {
             setMovies(moviesData)
           }
         } catch (e: any) {
-          console.log(e.message)
+          console.log(e)
           if(e.message === 'Muitos resultados encontrados') {
             toast.warn('Muitos resultados encontrados. Realize uma nova pesquisa')
           }
