@@ -13,6 +13,10 @@ export const Wrapper = styled.header`
   right: 0;
   background-image: linear-gradient(180deg,#1b2530 0,rgba(27,37,48,.85));
   z-index: 1;
+
+  @media(max-width: 768px) {
+    padding: 0 20px;
+  }
 `
 
 export const Logo = styled.div`

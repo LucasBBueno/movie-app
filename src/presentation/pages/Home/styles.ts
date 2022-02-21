@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  margin-top: 80px;
+  margin: 0 auto;
+  margin-top: 10vh;
+  max-width: 1600px;
 
   video {
     width: 100vw;
-    height: 55vh;
+    height: 45vh;
     object-fit: cover;
     position: fixed;
     left: 0;
@@ -21,19 +23,9 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `
 
 export const Search = styled.div`
-  /* margin-left: -15%;
-  margin-top: 10%; */
-  position: fixed;
-  left: 35%;
-  top: 35%;
-  transform: translate(-50%, -50%);
-
-  @media(max-width: 1024px) {
-    left: 5%;
-    top: 30%;
-    transform: translate(0)
-  }
+  margin-top: 80px;
 `

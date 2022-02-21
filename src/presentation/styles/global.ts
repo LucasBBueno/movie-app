@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     color: #fff;
-    background-color: #14171C;
+    background-color: #020202;
   }
   
   h1, h2, span, p, label {

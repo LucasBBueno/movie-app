@@ -24,41 +24,39 @@ const MoviesList = () => {
   const navigate = useNavigate()
 
   const fetchOmbdMoviesByName = async (getMoreResults?: boolean) => {
-      setTimeout(async () => {
-        try {
-          const res = await searchMoviesService.search({
-            name: state.name,
-            pageNumber: actualPage
-          })
-          console.log("Search", res)
-          if(res.totalResults > (movies.length)) {
-            setHasMoreResults(true)
-            setActualPage(actualPage + 1)
-          } else {
-            setHasMoreResults(false)
-          }
-          const moviesData = res.Search.map(movie => {
-            return {
-              title: movie.Title,
-              year: movie.Year,
-              id: movie.imdbID,
-              type: movie.Type,
-              poster: movie.Poster
-            }
-          })
-          if(getMoreResults) {
-            console.log('(movies.concat(moviesData))', (movies.concat(moviesData)))
-            setMovies(movies.concat(moviesData))
-          } else {
-            setMovies(moviesData)
-          }
-        } catch (e: any) {
-          console.log(e)
-          if(e.message === 'Muitos resultados encontrados') {
-            toast.warn('Muitos resultados encontrados. Realize uma nova pesquisa')
-          }
+    setTimeout(async () => {
+      try {
+        const res = await searchMoviesService.search({
+          name: state.name,
+          pageNumber: actualPage
+        })
+        if(res.totalResults > (movies.length)) {
+          setHasMoreResults(true)
+          setActualPage(actualPage + 1)
+        } else {
+          setHasMoreResults(false)
         }
-      }, 1000)
+        const moviesData = res.Search.map(movie => {
+          return {
+            title: movie.Title,
+            year: movie.Year,
+            id: movie.imdbID,
+            type: movie.Type,
+            poster: movie.Poster
+          }
+        })
+        if(getMoreResults) {
+          setMovies(movies.concat(moviesData))
+        } else {
+          setMovies(moviesData)
+        }
+      } catch (e: any) {
+        console.log(e)
+        if(e.message === 'Muitos resultados encontrados') {
+          toast.warn('Muitos resultados encontrados. Realize uma nova pesquisa')
+        }
+      }
+    }, 1500)
   }
 
   useEffect(() => {
@@ -78,14 +76,12 @@ const MoviesList = () => {
           Resultados para: {state.name}
           </h2>
         </S.Total>
-        <S.Results id="scrollableDiv">
-          <InfiniteScroll
+        <InfiniteScroll
             dataLength={movies.length}
             next={() => fetchOmbdMoviesByName(true)}
             hasMore={hasMoreResults}
-            loader={<S.LoadingMoreResults>{hasMoreResults ? 'Carregando...' : ''}</S.LoadingMoreResults>}
+            loader={<S.LoadingMoreResults>{hasMoreResults ? '...' : ''}</S.LoadingMoreResults>}
             endMessage={<S.LoadingMoreResults>{hasMoreResults ? '' : 'Sem dados para exibir'}</S.LoadingMoreResults>}
-            scrollableTarget="scrollableDiv"
           >
             <S.RowResult>
               {movies.map(movie => (
@@ -97,7 +93,6 @@ const MoviesList = () => {
               ))}
             </S.RowResult>
           </InfiniteScroll>
-        </S.Results>
       </S.Wrapper>
     </>
   )

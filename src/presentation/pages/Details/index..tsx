@@ -14,8 +14,8 @@ import * as S from './styles'
 
 const Details = () => {
   const [movieDetails, setMovieDetails] = useState<LoadOmbdMovieDetails.Model>()
+  
   const navigate = useNavigate()
-
 
   const params = useParams()
 
@@ -28,7 +28,6 @@ const Details = () => {
         const res = await loadMovieDetailService.load({
           movieId
         })
-        console.log("MoviesDetails", res)
         setMovieDetails(res)
       }
     } catch (e) {

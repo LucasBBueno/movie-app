@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   margin: 80px auto;
-  max-width: 1280px;
+  padding: 40px 20px;
+  max-width: 1600px;
 `
 
 export const Navigation = styled.div`
@@ -15,8 +16,9 @@ export const Navigation = styled.div`
     cursor: pointer;
     text-decoration: none;
     margin-right: 8px;
-    color: rgb(211, 209, 208);
+    color: #FFDB4C;
     font: 20px "Helvetica Neue",Arial,sans-serif;
+    font-weight: 600;
     background-color: transparent;
     border: 0;
 

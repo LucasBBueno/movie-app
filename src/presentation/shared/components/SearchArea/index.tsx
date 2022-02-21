@@ -24,14 +24,13 @@ const SearchArea = ({
   }
 
   const cannotSearchMovies = (): boolean => {
-    console.log("searchName === '' || searchName.length < 3", searchName === '' || searchName.length < 3)
     return searchName === '' || searchName.length < 3
   }
 
   return (
     <S.Wrapper>
       <S.Title>
-        Encontre os melhores filmes, no MovieApp
+        Encontre os melhores filmes, no <strong>MovieApp</strong>
       </S.Title>
       <S.InputBox>
         <input 

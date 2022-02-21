@@ -9,6 +9,10 @@ export const Title = styled.h1`
   margin-bottom: 32px;
   max-width: 600px;
 
+  strong {
+    color: #FFDB4C;
+  }
+
   @media(max-width: 1024px) {
     font-size: 28px;
     max-width: 310px;
