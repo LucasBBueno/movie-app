@@ -1,6 +1,20 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-export const Wrapper = styled.section``
+const AppearFromTop = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+export const Wrapper = styled.section`
+  animation: ${AppearFromTop} 1.5s;
+`
 
 export const Title = styled.h1`
   font: 42px "Helvetica Neue", Arial, sans-serif;

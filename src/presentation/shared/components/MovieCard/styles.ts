@@ -1,10 +1,24 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const AppearFromOpacityAndBottom = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`
 
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+
+  animation: ${AppearFromOpacityAndBottom} 1.5s;
 `
 
 export const Content = styled.div`

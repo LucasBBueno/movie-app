@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const AppearFromOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`
 
 export const Wrapper = styled.div`
   margin: 80px auto;
@@ -6,6 +16,8 @@ export const Wrapper = styled.div`
   max-width: 1600px;
   height: 105vh;
   flex: 1;
+
+  animation: ${AppearFromOpacity} 1.5s;
 `
 
 export const Total = styled.div`

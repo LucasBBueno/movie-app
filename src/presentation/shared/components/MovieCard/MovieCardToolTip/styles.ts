@@ -3,10 +3,12 @@ import styled, { keyframes } from 'styled-components'
 const fadeIn = keyframes`
   from {
     opacity: 0;
+    transform: scale(0);
   }
 
   to {
     opacity: 1;
+    transform: scale(1);
   }
 `;
 
@@ -19,7 +21,7 @@ export const Wrapper = styled.div`
   max-width: 900px;
   padding: 4px;
   border-radius: 8px;
-  animation: ${fadeIn} 0.4s linear;
+  animation: ${fadeIn} 0.5s;
 
   img {
     width: 215px;

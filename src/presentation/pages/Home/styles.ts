@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const AppearFromOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.2;
+  }
+`
 
 export const Wrapper = styled.div`
   margin: 0 auto;
@@ -16,6 +26,7 @@ export const Wrapper = styled.div`
     bottom: 0;
     z-index: -1;
     opacity: 0.2;
+    animation: ${AppearFromOpacity} 3s;
   }
 `
 
