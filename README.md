@@ -1,46 +1,78 @@
-# Getting Started with Create React App
+<h4 align="center">
+  Aplicação em ReactJS para a busca de Filmes
+</h4>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#memo-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#floppy_disk-instalar">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="#cd-executar">Executar</a>&nbsp;&nbsp;&nbsp;
+</p>
 
-## Available Scripts
 
-In the project directory, you can run:
+<p align="center">
+    <img height="400" src="https://res.cloudinary.com/lucasbbueno/image/upload/v1645491840/movie-app_yzhbak.png">
+</P>
 
-### `npm start`
+## :memo: Sobre
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Este projeto foi desenvolvido em ReactJS para a listagem de filmes, através do consumo da API do [OMBD](http://www.omdbapi.com/). Para isso foram utilizados algumas tecnologias que podem ser encontradas abaixo.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## :rocket: Tecnologias
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A seguir segue a listagem das principais tecnologias utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ReactJS](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/docs/home.html)
+- [OMBD-API](http://www.omdbapi.com/)
+- [Axios](https://github.com/axios/axios)
+- [react-router-dom](https://reactrouter.com/web/guides/quick-start)
+- [styled-components](https://styled-components.com/docs)
+- [Storybook](https://storybook.js.org/)
+- [Jest](https://jestjs.io/pt-BR/)
+- [VS Code](https://code.visualstudio.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## :floppy_disk: Instalação
+Para executar a aplicação, precisamos instalar as depêndencias, para isso é preciso possuir um gerenciador de pacotes, como o [NPM](https://nodejs.org/en/) ou [Yarn](https://yarnpkg.com/). Para realizar o clone é necessário o [Git](https://git-scm.com/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Após isso podemos, podemos clonar a aplicação via terminal/prompt de comando da seguinte maneira:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ git clone https://github.com/LucasBBueno/movie-app
+$ cd movie-app
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+E para instalar as depêndencias:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**NPM**
+```
+$ npm install
+```
 
-## Learn More
+**Yarn**
+```
+$ yarn
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :cd: Executar
+Com as depências instaladas e na pasta raiz da aplicação, executar o seguinte comando no terminal/prompt:
+
+**NPM**
+```
+$ npm start
+```
+
+**Yarn**
+```
+$ yarn start
+```
+A aplicação será iniciada no endereço **localhost:3000**.
+
+---
+
+Feito com ♥ por Lucas Bueno :wave: [Contato!](https://www.linkedin.com/in/lucasbbueno).
