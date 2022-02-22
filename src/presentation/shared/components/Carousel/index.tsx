@@ -139,7 +139,7 @@ const Carousel = ({
   }, [])
 
   return (
-    <S.Wrapper>
+    <S.Wrapper data-testid="carousel-box">
       <Slider {...settings}>
         {movies.map(movie => (
           <CarouselCard
