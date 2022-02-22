@@ -19,7 +19,7 @@ type MovieCardToolTipProps = {
 const MovieCardToolTip = ({ movie, onClose, onGetMoreInfo }: MovieCardToolTipProps) => {
   return (
     <S.Wrapper
-      onMouseLeave={onClose}
+      onMouseLeave={() => onClose()}
     >
       <img 
         src={movie.poster === 'N/A' ? MoviePlaceHolder : movie.poster}

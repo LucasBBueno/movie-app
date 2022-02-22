@@ -23,6 +23,14 @@ const MovieCard = ({
 }: MovieCardProps) => {
   const [showTooltip, setShowToolTip] = useState(false)
 
+  const handleShowToolTip = () => {
+    setShowToolTip(true)
+
+    setTimeout(() => {
+      setShowToolTip(false)
+    }, 8000)
+  }
+
   return (
     <S.Wrapper>
       {showTooltip && (
@@ -36,7 +44,8 @@ const MovieCard = ({
         <img 
           src={movie.poster === 'N/A' ? MoviePlaceHolder : movie.poster}
           alt={movie.title}
-          onMouseEnter={() => setShowToolTip(true)}
+          onMouseEnter={() => handleShowToolTip()}
+          onClick={() => handleShowToolTip()}
         />
       </S.Content>
     </S.Wrapper>

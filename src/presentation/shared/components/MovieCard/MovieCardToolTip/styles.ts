@@ -28,6 +28,17 @@ export const Wrapper = styled.div`
     height: 325px;
     object-fit: cover;
   }
+
+  @media (max-width: 768px) {
+    max-width: 90vw;
+    flex-direction: column;
+
+      img {
+        width: 100%;
+        height: 250px;
+      }
+  }
+
 `
 
 export const Details = styled.div`
